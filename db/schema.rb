@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_24_141647) do
+ActiveRecord::Schema.define(version: 2020_04_24_141758) do
 
   create_table "channels", force: :cascade do |t|
     t.string "channel"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "discussion_id"
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|

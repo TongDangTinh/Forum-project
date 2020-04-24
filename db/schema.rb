@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_24_141510) do
+ActiveRecord::Schema.define(version: 2020_04_24_141647) do
 
   create_table "channels", force: :cascade do |t|
     t.string "channel"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2020_04_24_141510) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.integer "channel_id"
   end
 
   create_table "replies", force: :cascade do |t|

@@ -1,6 +1,6 @@
 class DiscussionsController < ApplicationController
   before_action :find_discussion, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: :index, :show
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :find_channel, only: [:index, :show, :new, :edit]
 
   def index

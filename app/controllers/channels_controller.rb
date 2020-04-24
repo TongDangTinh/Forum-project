@@ -31,7 +31,7 @@ class ChannelsController < ApplicationController
   end
 
   def update
-    if @channel.save
+    if @channel.update channel_params
       flash[:success] = "Channel updated!"
       redirect_to channels_path
     else

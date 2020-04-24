@@ -33,7 +33,7 @@ class DiscussionsController < ApplicationController
 
     if @discussion.update_attribute discussion_params
       flash[:success] = "Discussion updated!"
-      redirect_to discustion_path
+      redirect_to discustions_path
     else
       render :edit
     end
@@ -41,6 +41,7 @@ class DiscussionsController < ApplicationController
 
   def distroy
     @discussion.destroy
+    redirect_to discussions_path
   end
 
 

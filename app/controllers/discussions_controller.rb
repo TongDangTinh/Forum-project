@@ -1,19 +1,22 @@
 class DiscussionsController < ApplicationController
   before_action :find_discussion, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: :index, :show
+  before_action :find_channel, only: [:index, :show, :new, :edit]
 
   def index
     @discussions = Discussion.all.order("created_at desc")
   end
 
   def show
+    @discussions = Discussion.all.order("created_at desc")
   end
 
   def new
-    @discussion = Discussion.new
+    @discussion = current_user.discussions.build
   end
 
   def create
-    @discussion = Discussion.new discussion_params
+    @discussion = current_user.discussions.build discussion_params
 
     if @discussion.save 
       flash[:success] = "Discussion created!"
@@ -48,5 +51,9 @@ class DiscussionsController < ApplicationController
 
     def find_discussion
       @discussion = Discussion.find params[:id]
+    end
+
+    def find_channel
+      @channels = Channel.all.order("created_at desc")
     end
 end

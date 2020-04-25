@@ -1,0 +1,33 @@
+<div class="col-md-8">
+  <h3>Last Discussions</h3>
+  <% @discussions.each do |discussion| %>
+    <div class="row">
+      <div class="col-md-1">
+        <!-- Gravatar -->
+      </div>
+      <div class="col-md-11">
+        <%= link_to discussion do %>
+          <h3><%= discussion.title %></h3>
+        <% end %>
+        <p>
+          <%= truncate(discussion.content, length: 140) %>
+        </p>
+        <p><em><small>
+          Posted <%= time_ago_in_words(discussion.created_at) %> ago in
+
+          
+          <% if discussion.channel %>
+            <%= link_to discussion.channel.channel, discussion.channel %>
+          <% end %>
+
+          <%= discussion.user.username if discussion.user %>
+          
+        </small></em></p>
+        <%= link_to "Edit", edit_discussion_path(discussion), 
+          class: "btn btn-secondary" %>
+        <%= link_to "Delete", discussion, method: :delete, 
+          class: "btn btn-warning" %>
+      </div>
+    </div>
+  <% end %>
+</div> 

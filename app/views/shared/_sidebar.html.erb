@@ -1,0 +1,10 @@
+<div class="col-md-4">
+  <h3>Channels</h3>
+  <ul class="list-group-item">
+    <% @channels.each do |c| %>
+      <li><%= link_to c.channel, c %></li>
+    <% end %>
+  </ul>
+
+  <%= link_to "New channel", new_channel_path, class: "btn btn-info" %>
+</div>

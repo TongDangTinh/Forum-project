@@ -2,9 +2,3 @@
   <%= render "shared/discussion" %>
   <%= render "shared/sidebar" %>
 </div>
-<div class="row">
-  <% @discussions.each do |discussion| %>
-    <strong><%= discussion.title %></strong>>
-    <p><%= discussion.content %></p>
-  <% end %>
-</div>

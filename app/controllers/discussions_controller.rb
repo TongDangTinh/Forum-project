@@ -39,7 +39,7 @@ class DiscussionsController < ApplicationController
     end
   end
 
-  def distroy
+  def destroy
     @discussion.destroy
     redirect_to discussions_path
   end
@@ -47,7 +47,7 @@ class DiscussionsController < ApplicationController
 
   private 
     def discussion_params
-      params.require(:discussion).permit :title, :content
+      params.require(:discussion).permit :title, :content, :channel_id
     end
 
     def find_discussion

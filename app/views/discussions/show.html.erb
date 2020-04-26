@@ -2,13 +2,15 @@
   <div class="col-md-8">
     <h3><%= @discussion.title %></h3>
     <h5 class="text-muted mt-n2">by<small> <%= @discussion.user.username %></small></h5>
-
-    <div class="float-right">
-      <%= link_to "Edit Discussion", edit_discussion_path(@discussion), 
-        class: "btn btn-outline-secondary" %>
-      <%= link_to "Delete", discussion_path(@discussion), method: :delete, 
-        data: { confirm: "Are you sure?" }, class: "btn btn-warning" %>
-    </div>
+    
+    <% if discussion_author(@discussion) %>
+      <div class="float-right">
+        <%= link_to "Edit Discussion", edit_discussion_path(@discussion), 
+          class: "btn btn-outline-secondary" %>
+        <%= link_to "Delete", discussion_path(@discussion), method: :delete, 
+          data: { confirm: "Are you sure?" }, class: "btn btn-warning" %>
+      </div>
+    <% end %>
     <div class="float-left content">
       <p class="text-muted"><%= @discussion.content %></p>
       <h5 class="text-info">

@@ -12,15 +12,17 @@
         <p>
           <%= truncate(discussion.content, length: 140) %>
         </p>
-        <p><em><small>Posted <%= time_ago_in_words(discussion.created_at) %>
-          ago in
+        <p><em><small>
+          Posted <%= time_ago_in_words(discussion.created_at) %> ago in
+
+          
           <% if discussion.channel %>
             <%= link_to discussion.channel.channel, discussion.channel %>
           <% end %>
-          by <%= discussion.user.username if discussion.user %>
-          </small>
-          </em>
-        </p>
+
+          <%= discussion.user.username if discussion.user %>
+          
+        </small></em></p>
         <%= link_to "Edit", edit_discussion_path(discussion), 
           class: "btn btn-secondary" %>
         <%= link_to "Delete", discussion, method: :delete, 

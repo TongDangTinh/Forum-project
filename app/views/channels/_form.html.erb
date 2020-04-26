@@ -1,0 +1,12 @@
+<div class="col-md-6 offset-md-3 mt-3">
+  <h3>Create new channel</h3>
+  <%= form_for(@channel) do |f| %>
+    <div class="field">
+      <%= f.label :channel %>
+      <%= f.text_field :channel, class: "form-control" %>
+    </div>
+    <div class="field mt-3">
+      <%= f.submit "Create New Channel", class: "btn btn-primary form-control" %>
+    </div>
+  <% end %>
+</div>

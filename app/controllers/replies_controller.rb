@@ -8,8 +8,9 @@ class RepliesController < ApplicationController
   end
 
   def create 
-    @reply = @discussion.replies.create params[:reply].permit(:reply, :disccussion_id)
+    @reply = @discussion.replies.create(params[:reply].permit(:reply, :discussion_id))
     @reply.user_id = current_user.id
+
 
     if @reply.save 
       redirect_to discussion_path(@discussion)
@@ -20,7 +21,7 @@ class RepliesController < ApplicationController
 
 
   def edit
-    @discussion = Discussion.find params[:disccussion_id]
+    @discussion = Discussion.find params[:discussion_id]
     @reply = @discussion.replies.find params[:id]
   end
 
@@ -51,6 +52,6 @@ class RepliesController < ApplicationController
     end
 
     def set_discussion
-      @discussion = Discussion.find params[:disccussion_id]
-  end
+      @discussion = Discussion.find params[:discussion_id]
+    end
 end

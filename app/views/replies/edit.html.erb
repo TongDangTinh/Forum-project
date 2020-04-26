@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <h2 class="text-center">Edit Reply</h2>
+
+    <%= form_for([@discussion, @reply]) do |f| %>
+      <div class="field">
+        <%= f.label :reply %>
+        <%= f.text_area :reply, class: "form-control" %>
+      </div>
+      <div class="field mt-3">
+        <%= f.submit "Update reply", class: "btn btn-info" %>
+      </div>
+    <% end %>
+
+  </div>
+</div>

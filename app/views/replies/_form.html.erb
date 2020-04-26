@@ -1,0 +1,9 @@
+<%= form_for [@discussion, @discussion.replies.build] do |f| %>
+  <div class="field">
+    <%= f.text_area :reply, placeholder: "Write something....",  
+      class: "form-control" %>
+  </div>
+  <div class="field mt-3">
+    <%= f.submit "Leave a reply", class: "btn btn-info" %>
+  </div>
+<% end %>

@@ -1,0 +1,24 @@
+<div class="comment-content border mt-3">
+  <div class="content ml-3">
+    <p>
+      <strong><%= reply.user.username %></strong> |
+      <small><%= time_ago_in_words(reply.created_at) %></small>
+      <br/>
+      <%= reply.reply %>
+    </p>
+  </div>
+
+  <div class="ml-4">
+    <a>
+      <%= link_to edit_discussion_reply_path(reply.discussion, reply) do %>
+      <span class="mr-3"><i class="fa fa-pencil"></i></span>
+      <% end %>
+    </a>
+    <a>
+      <%= link_to [reply.discussion, reply],
+          method: :delete, data: {confirm: "Are you sure ?" } do %>
+      <span><i class="fa fa-trash-o"></i></span>
+      <% end %>
+    </a>
+  </div>
+</div>

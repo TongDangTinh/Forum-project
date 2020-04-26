@@ -1,10 +1,9 @@
-<div class="col-md-4">
+<div class="col-md-4 border">
   <h3>Channels</h3>
   <ul>
     <% @channels.each do |c| %>
       <li class="list-unstyled"><%= link_to c.channel, c %></li>
     <% end %>
+    <%= link_to "New channel", new_channel_path, class: "btn btn-info mt-5" %>
   </ul>
-
-  <%= link_to "New channel", new_channel_path, class: "btn btn-info" %>
 </div>

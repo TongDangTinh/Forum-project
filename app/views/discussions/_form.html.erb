@@ -7,6 +7,15 @@
     <%= f.label :content %>
     <%= f.cktext_area :content, class: "form-control" %>
   </div>
+  
+  <div class="field mt-3">
+    <span><%= f.label :channel %></span>
+    
+    <span>
+      <%= f.select :channel_id, @channels.map { |c| [c.channel, c.id] },
+        prompt: "Select channel" %><i class="fa fa-tag"></i>
+    </span>
+  </div>  
 
   <div class="field mt-2">
     <%= f.submit yield(:button_text), class: "btn btn-primary" %>

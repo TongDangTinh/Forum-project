@@ -1,4 +1,37 @@
 <div class="row">
-  <strong><%= @discussion.title %></strong>>
-  <p><%= @discussion.content %></p>
+  <div class="col-md-8">
+    <h3><%= @discussion.title %></h3>
+    <h5 class="text-muted mt-n2">by<small> <%= @discussion.user.username %></small></h5>
+
+    <div class="float-right">
+      <%= link_to "Edit Discussion", edit_discussion_path(@discussion), 
+        class: "btn btn-outline-secondary" %>
+      <%= link_to "Delete", discussion_path(@discussion), method: :delete, 
+        data: { confirm: "Are you sure?" }, class: "btn btn-warning" %>
+    </div>
+    <div class="float-left content">
+      <p class="text-muted"><%= @discussion.content %></p>
+      <h5>
+        <%= @discussion.replies.count %> Replies
+      </h5>
+
+      <span id="discusion-replies">
+        <!-- discussion.replies -->
+      </span>
+      <hr>
+      <% if user_signed_in? %>
+      <h4>Leave a reply</h4>
+       <!--  render "replies/form" %> -->
+      <% else %>
+        <p>
+          To reply you need to <%= link_to "Login", new_user_session_path %>. If 
+          don't have an account? <%= link_to "Sign up", new_user_registration_path %>
+          for one.
+        </p>
+      <% end %> 
+    </div>
+  </div>
+  
+  <%= render "shared/sidebar" %>
+
 </div>

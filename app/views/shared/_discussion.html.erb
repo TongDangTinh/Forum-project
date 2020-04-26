@@ -22,11 +22,13 @@
           by <%= discussion.user.username if discussion.user %>
           
         </small></em></p>
-        <%= link_to "Edit", edit_discussion_path(discussion), 
-          class: "btn btn-secondary" %>
-        <%= link_to "Delete", discussion, method: :delete, 
-          class: "btn btn-warning" %>
-      </div>
+        <% if discussion_author(discussion) %>
+          <%= link_to "Edit", edit_discussion_path(discussion), 
+            class: "btn btn-secondary" %>
+          <%= link_to "Delete", discussion, method: :delete, 
+            class: "btn btn-warning" %>
+        <% end %>
+        </div>
     </div>
   <% end %>
 </div> 

@@ -20,6 +20,8 @@ gem "devise"
 gem "mini_magick"
 gem "carrierwave"
 gem "ckeditor"
+gem "pry"
+
 
 gem "bootsnap", ">= 1.1.0", require: false
 

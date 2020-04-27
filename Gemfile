@@ -24,6 +24,7 @@ gem "pry"
 
 gem "cancancan"
 gem "rolify"
+gem "friendly_id", "~> 5.3"
 
 gem "bootsnap", ">= 1.1.0", require: false
 

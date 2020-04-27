@@ -6,4 +6,7 @@ class Discussion < ApplicationRecord
 
   validates :title, :content, presence: true
   resourcify
+
+  extend FriendlyId
+  friendly_id :title, use: :slugged
 end

@@ -48,7 +48,7 @@ class RepliesController < ApplicationController
     end
 
     def set_reply
-      @reply = Reply.find params[:id]
+      @reply = Reply.friendly.find params[:id]
     end
 
     def set_discussion

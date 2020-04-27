@@ -22,6 +22,9 @@ gem "carrierwave"
 gem "ckeditor"
 gem "pry"
 
+gem "cancancan"
+gem "rolify"
+
 gem "bootsnap", ">= 1.1.0", require: false
 
 group :development, :test do

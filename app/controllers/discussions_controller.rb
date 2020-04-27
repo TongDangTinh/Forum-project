@@ -51,7 +51,7 @@ class DiscussionsController < ApplicationController
     end
 
     def find_discussion
-      @discussion = Discussion.find params[:id]
+      @discussion = Discussion.friendly.find params[:id]
     end
 
     def find_channel

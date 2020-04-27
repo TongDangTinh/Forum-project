@@ -51,6 +51,6 @@ class ChannelsController < ApplicationController
   end
 
   def set_channel
-    @channel = Channel.find params[:id]
+    @channel = Channel.friendly.find params[:id]
   end
 end
